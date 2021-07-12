@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarifullinAF.TicTacToe.ConsoleApp", "GarifullinAF.TicTacToe.ConsoleApp\GarifullinAF.TicTacToe.ConsoleApp.csproj", "{C2C49BC5-A70E-42E9-B5CD-2472F6D09F6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarifullinAF.TicTacToe.WiningCombinations", "GarifullinAF.TicTacToe.WiningCombinations\GarifullinAF.TicTacToe.WiningCombinations.csproj", "{241921E5-135E-4473-B76C-80C6DBC82786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarifullinAF.TicTacToe.DetermineWinner", "GarifullinAF.TicTacToe.DetermineWinner\GarifullinAF.TicTacToe.DetermineWinner.csproj", "{59D4893A-FAE1-4CCB-8F77-64CF989F8976}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GarifullinAF.TicTacToe.BaseGames", "GarifullinAF.TicTacToe.BaseGames", "{FF9EC3E2-B254-4506-B08A-47A88DB616E1}"
+	ProjectSection(SolutionItems) = preProject
+		GameResults.json = GameResults.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2C49BC5-A70E-42E9-B5CD-2472F6D09F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C49BC5-A70E-42E9-B5CD-2472F6D09F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C49BC5-A70E-42E9-B5CD-2472F6D09F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C49BC5-A70E-42E9-B5CD-2472F6D09F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241921E5-135E-4473-B76C-80C6DBC82786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241921E5-135E-4473-B76C-80C6DBC82786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241921E5-135E-4473-B76C-80C6DBC82786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241921E5-135E-4473-B76C-80C6DBC82786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D4893A-FAE1-4CCB-8F77-64CF989F8976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D4893A-FAE1-4CCB-8F77-64CF989F8976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D4893A-FAE1-4CCB-8F77-64CF989F8976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D4893A-FAE1-4CCB-8F77-64CF989F8976}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB6881AD-6ACC-4997-A49F-523E087C9146}
+	EndGlobalSection
+EndGlobal
