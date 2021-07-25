@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsLibrary1;
+
 
 namespace WinInterface
 {
@@ -17,95 +19,72 @@ namespace WinInterface
             InitializeComponent();
         }
 
-        List<int> resultTurns = new List<int>();
-        DrawTicToe draw = new DrawTicToe();
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(1))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox1);
-                else draw.DrawCircle(pictureBox1);
-                resultTurns.Add(1);
-            }
+            GamePoint positionBox1 = new GamePoint(0,0);
+            ////Проверка на то, что символ в поле еще не устанавливался
+            //if (newGame.gameResult[positionBox1.X,positionBox1.Y] == GameSymbols.Empty)
+            //{
+            //    newGame.gameResult[positionBox1.X, positionBox1.Y] = DrawTicToe.CurrentTurn;
+            //    if (DrawTicToe.CurrentTurn == GameSymbols.Cross)
+            //    {
+            //        draw.DrawCross(pictureBox1);
+            //    }
+            //    else
+            //    {
+            //        draw.DrawCircle(pictureBox1);
+            //    }
+            //    if (WinningCombinations.CheckWinningCombinationcs(newGame.gameResult))
+            //    {
+            //        MessageBox.Show("Есть победитель");
+            //    };
+            //}
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(2))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox2);
-                else draw.DrawCircle(pictureBox2);
-                resultTurns.Add(2);
-            }
+            GamePoint positionBox1 = new GamePoint(1, 0);
+        
         }
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(3))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox3);
-                else draw.DrawCircle(pictureBox3);
-                resultTurns.Add(3);
-            }
+            GamePoint positionBox1 = new GamePoint(2, 0);
+            
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(4))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox4);
-                else draw.DrawCircle(pictureBox4);
-                resultTurns.Add(4);
-            }
+            GamePoint positionBox1 = new GamePoint(0, 1);
+            
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(5))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox5);
-                else draw.DrawCircle(pictureBox5);
-                resultTurns.Add(5);
-            }
+            GamePoint positionBox1 = new GamePoint(1, 1);
+            
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(6))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox6);
-                else draw.DrawCircle(pictureBox6);
-                resultTurns.Add(6);
-            }
+            GamePoint positionBox1 = new GamePoint(2, 1);
+            
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(7))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox7);
-                else draw.DrawCircle(pictureBox7);
-                resultTurns.Add(7);
-            }
+            GamePoint positionBox1 = new GamePoint(0, 2);
+            
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(8))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox8);
-                else draw.DrawCircle(pictureBox8);
-                resultTurns.Add(8);
-            }
+            GamePoint positionBox1 = new GamePoint(1, 2);
+            
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            if (!resultTurns.Contains(9))
-            {
-                if (DrawTicToe.CurrentTurn == 0) draw.DrawCross(pictureBox9);
-                else draw.DrawCircle(pictureBox9);
-                resultTurns.Add(9);
-            }
+            GamePoint positionBox1 = new GamePoint(2, 2);
+            
         }
     }
 }
