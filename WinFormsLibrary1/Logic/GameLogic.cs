@@ -6,28 +6,17 @@ using System.Windows.Forms;
 
 namespace WinFormsLibrary1
 {
-    public class GameData
+    public class GameLogic
     {
-        public GameSymbols[,] gameResult = new GameSymbols[3, 3];
+        /// <summary>
+        /// Символ игрока, чей сейчас ход
+        /// </summary>
         public static GameSymbols CurrentTurn = GameSymbols.Cross;
 
-        public GameData()
-        {
-            RefreshGameResult();
-        }
-
-        public void RefreshGameResult()
-        {
-            int rows = gameResult.GetUpperBound(0) + 1;
-            int columns = gameResult.Length / rows;
-            for (int x = 0; x < rows; x++)
-            {
-                for (int y = 0; y < columns; y++)
-                {
-                    gameResult[x, y] = GameSymbols.Empty;
-                }
-            }
-        }
+        /// <summary>
+        /// Рисует круг в переданом контроле
+        /// </summary>
+        /// <param name="control"></param>
         public void DrawCircle(Control control)
         {
             Graphics g = control.CreateGraphics();
@@ -35,9 +24,12 @@ namespace WinFormsLibrary1
             g.DrawEllipse(myPen, new Rectangle((int)myPen.Width, (int)myPen.Width, control.Width - (int)myPen.Width * 2, control.Height - (int)myPen.Width * 2));
             myPen.Dispose();
             g.Dispose();
-            CurrentTurn = GameSymbols.Cross;
         }
 
+        /// <summary>
+        /// Рисует крестик в переданом контроле
+        /// </summary>
+        /// <param name="control"></param>
         public void DrawCross(Control control)
         {
             Graphics g = control.CreateGraphics();
@@ -46,7 +38,15 @@ namespace WinFormsLibrary1
             g.DrawLine(myPen, new Point((int)myPen.Width, control.Height - (int)myPen.Width), new Point(control.Width - (int)myPen.Width, (int)myPen.Width));
             myPen.Dispose();
             g.Dispose();
-            CurrentTurn = GameSymbols.Circle;
+        }
+
+        /// <summary>
+        /// Передает ход следующему игроку
+        /// </summary>
+        public void NextTurn()
+        {
+            if (CurrentTurn == GameSymbols.Circle) CurrentTurn = GameSymbols.Cross;
+            else CurrentTurn = GameSymbols.Circle;
         }
     }
 }
