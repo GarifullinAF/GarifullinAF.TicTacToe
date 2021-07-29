@@ -19,11 +19,11 @@ namespace WinFormsLibrary1
         /// <param name="control"></param>
         public void DrawCircle(Control control)
         {
-            Graphics g = control.CreateGraphics();
+            Graphics graphic = control.CreateGraphics();
             Pen myPen = new Pen(Color.Red, 10);
-            g.DrawEllipse(myPen, new Rectangle((int)myPen.Width, (int)myPen.Width, control.Width - (int)myPen.Width * 2, control.Height - (int)myPen.Width * 2));
+            graphic.DrawEllipse(myPen, new Rectangle((int)myPen.Width, (int)myPen.Width, control.Width - (int)myPen.Width * 2, control.Height - (int)myPen.Width * 2));
             myPen.Dispose();
-            g.Dispose();
+            graphic.Dispose();
         }
 
         /// <summary>
@@ -32,12 +32,12 @@ namespace WinFormsLibrary1
         /// <param name="control"></param>
         public void DrawCross(Control control)
         {
-            Graphics g = control.CreateGraphics();
+            Graphics graphic = control.CreateGraphics();
             Pen myPen = new Pen(Color.Red, 10);
-            g.DrawLine(myPen, new Point((int)myPen.Width, (int)myPen.Width), new Point(control.Width - (int)myPen.Width, control.Height - (int)myPen.Width));
-            g.DrawLine(myPen, new Point((int)myPen.Width, control.Height - (int)myPen.Width), new Point(control.Width - (int)myPen.Width, (int)myPen.Width));
+            graphic.DrawLine(myPen, new Point((int)myPen.Width, (int)myPen.Width), new Point(control.Width - (int)myPen.Width, control.Height - (int)myPen.Width));
+            graphic.DrawLine(myPen, new Point((int)myPen.Width, control.Height - (int)myPen.Width), new Point(control.Width - (int)myPen.Width, (int)myPen.Width));
             myPen.Dispose();
-            g.Dispose();
+            graphic.Dispose();
         }
 
         /// <summary>
@@ -47,6 +47,42 @@ namespace WinFormsLibrary1
         {
             if (CurrentTurn == GameSymbols.Circle) CurrentTurn = GameSymbols.Cross;
             else CurrentTurn = GameSymbols.Circle;
+        }
+
+        public void TurnAction(GamePoint controlsPoint, Control control, GameLogic logic, GameField field, Form gameForm)
+        {
+            if (field.CheckSymbolEmpty(controlsPoint))
+            {
+                field.GameResult[controlsPoint.X, controlsPoint.Y] = GameLogic.CurrentTurn;
+                if (GameLogic.CurrentTurn == GameSymbols.Cross)
+                    logic.DrawCross(control);
+                else logic.DrawCircle(control);
+            }
+            if (field.CheckWinningCombinationcs())
+            {
+                MessageBox.Show($"{GameLogic.CurrentTurn} win!!!");
+                logic.GameReplayRequest(field, gameForm);
+            }
+            logic.NextTurn();
+           
+        }
+
+        public void GameReplayRequest(GameField field, Form gameForm)
+        {
+            string message = "Еще партейку?";
+            string caption = "";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result == DialogResult.Yes)
+            {
+                field.RefreshGameResult();
+                gameForm.Enabled = false;
+                gameForm.Enabled = true;
+                GameLogic.CurrentTurn = GameSymbols.Cross;
+            }
+            else gameForm.Close();
         }
     }
 }
